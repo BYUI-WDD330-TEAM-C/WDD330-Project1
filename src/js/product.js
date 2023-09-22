@@ -18,7 +18,7 @@ function addProductToCart(product) {
 }
 
 async function addToCartHandler(e) {
-  e.preventDefault(); 
+  e.preventDefault();
   const product = await findProductById(e.target.dataset.id);
   addProductToCart(product);
 }

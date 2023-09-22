@@ -1,8 +1,6 @@
-
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-
   const cartItems = getLocalStorage("so-cart");
 
   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
