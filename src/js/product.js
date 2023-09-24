@@ -26,7 +26,4 @@ document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
 
-  
-//testing creating new branch;
-
 
