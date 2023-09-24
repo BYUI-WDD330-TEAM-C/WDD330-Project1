@@ -16,7 +16,6 @@ function addProductToCart(product) {
 
   setLocalStorage("so-cart", cart);
 }
-
 async function addToCartHandler(e) {
   e.preventDefault();
   const product = await findProductById(e.target.dataset.id);
@@ -26,3 +25,8 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
+  
+
+
+
