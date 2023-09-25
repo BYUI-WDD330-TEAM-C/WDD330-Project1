@@ -1,15 +1,5 @@
 import { getLocalStorage } from "./utils.mjs";
 
-// function renderCartContents() {
-//   const cartItems = getLocalStorage("so-cart");
-
-//   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
-
-//   const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
-
-//   document.querySelector(".product-list").innerHTML = htmlItems.join("");
-// }
-
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
@@ -88,6 +78,16 @@ function saveCart(cartItems) {
 
 renderCartContents();
 
+
+// function renderCartContents() {
+//   const cartItems = getLocalStorage("so-cart");
+
+//   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
+
+//   const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
+
+//   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+// }
 
 // function cartItemTemplate(item) {
 //   const newItem = `<li class="cart-card divider">
