@@ -12,18 +12,18 @@ function addProductToCart(product) {
     cart = [];
   }
 
-    // Check if the product is already in the cart
-    const existingProduct = cart.find((item) => item.Id === product.Id);
+  // Check if the product is already in the cart
+  const existingProduct = cart.find((item) => item.Id === product.Id);
 
-    if (existingProduct) {
-      // If the product is already in the cart, increase its quantity
-      existingProduct.Quantity += 1;
-    } else {
-      // If it's not in the cart, add it with an initial quantity of 1
-      product.Quantity = 1;
+  if (existingProduct) {
+    // If the product is already in the cart, increase its quantity
+    existingProduct.Quantity += 1;
+  } else {
+    // If it's not in the cart, add it with an initial quantity of 1
+    product.Quantity = 1;
 
-  cart.push(product);
-    }
+    cart.push(product);
+  }
 
   setLocalStorage("so-cart", cart);
 }
@@ -36,5 +36,3 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
-
-

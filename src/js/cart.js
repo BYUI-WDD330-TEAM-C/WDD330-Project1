@@ -12,10 +12,15 @@ function cartItemTemplate(item) {
       <h2 class="card__name">${item.Name}</h2>
     </a>
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: <span class="quantity">${item.Quantity}</span></p>
-    <p class="cart-card__price">$${item.FinalPrice}</p>
-    <button class="increase-quantity">+</button>
+    <p class="cart-card__quantity">qty: <span class="quantity">${
+      item.Quantity
+    }</span></p>
+    <p class="cart-card__price">$${item.FinalPrice.toFixed(2)} per item</p>
+    <p class="cart-card__total-price">$${(
+      item.FinalPrice * item.Quantity
+    ).toFixed(2)} total</p>
     <button class="decrease-quantity">-</button>
+    <button class="increase-quantity">+</button>
   </li>`;
 
   return newItem;
@@ -77,7 +82,6 @@ function saveCart(cartItems) {
 }
 
 renderCartContents();
-
 
 // function renderCartContents() {
 //   const cartItems = getLocalStorage("so-cart");
