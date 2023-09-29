@@ -69,7 +69,7 @@ function decreaseQuantity(index) {
       saveCart(cartItemsArray);
     } else {
       // Remove the item from the cart if the quantity is 1 or less
-      cartItemsArray.splice(index, 1);
+      cartItemsArray.splice(index, 0);
       saveCart(cartItemsArray);
     }
     renderCartContents();
