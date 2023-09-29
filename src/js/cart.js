@@ -83,6 +83,8 @@ function saveCart(cartItems) {
 
 renderCartContents();
 
+// THIS IS THE ORIGINAL CODE FROM THE LESSON
+
 // function renderCartContents() {
 //   const cartItems = getLocalStorage("so-cart");
 
