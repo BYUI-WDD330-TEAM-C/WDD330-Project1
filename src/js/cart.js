@@ -68,8 +68,8 @@ function decreaseQuantity(index) {
       cartItemsArray[index].Quantity--;
       saveCart(cartItemsArray);
     } else {
-      // Remove the item from the cart if the quantity is 1 or less
-      cartItemsArray.splice(index, 0);
+      // Remove the item from the cart if the quantity is less than 1
+      cartItemsArray.splice(index, 1);
       saveCart(cartItemsArray);
     }
     renderCartContents();
