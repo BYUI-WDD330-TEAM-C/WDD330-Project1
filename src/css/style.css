@@ -91,6 +91,7 @@ button {
   font-size: var(--large-font);
   cursor: pointer;
 }
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
@@ -108,6 +109,17 @@ button {
 }
 .cart:hover svg {
   fill: gray;
+}
+
+@keyframes cart-anim{
+  0%{transform: rotate(0deg)};
+  50%{transform: rotate(180deg);}
+  75%{transform: rotate(270deg)}
+  100%{transform: rotate(3600deg)}
+}
+
+.animation{
+  animation: cart-anim 1.5s linear;
 }
 
 /* End cart icon styles */

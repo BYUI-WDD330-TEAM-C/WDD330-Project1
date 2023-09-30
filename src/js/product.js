@@ -28,8 +28,23 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
+let cartButton = document.querySelector('.product-detail__add');
+let cartIcon = document.querySelector('.cart');
+
+function cartanimation(){
+  
+  cartIcon.classList.add('animation');
+  settimeout(() =>{ cartIcon.classList.remove('animation');},
+  "3");
+  
+}
+
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
+  cartButton.addEventListener('click', cartanimation);
+
+  
 
 
