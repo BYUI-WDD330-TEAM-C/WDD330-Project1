@@ -1,5 +1,11 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, getParam } from "./utils.mjs";
+import productDetails from "./productDetails.mjs";
 import { findProductById } from "./productData.mjs";
+
+
+const productId = getParam('product');
+productDetails(productId);
+console.log(findProductById(productId));
 
 if (!getLocalStorage("so-cart")) {
   setLocalStorage("so-cart", []);
@@ -12,7 +18,15 @@ function addProductToCart(product) {
     cart = [];
   }
 
-  cart.push(product);
+  const existingProduct = cart.find((item) => item.Id === product.Id);
+
+  if (existingProduct) {
+    existingProduct.Quantity += 0;
+  } else {
+    product.Quantity = 0;
+
+    cart.push(product);
+  }
 
   setLocalStorage("so-cart", cart);
 }
@@ -25,8 +39,3 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
-
-  
-
-
-
