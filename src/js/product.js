@@ -38,12 +38,14 @@ function cartanimation(){
   "3");
   
 }
+cartButton.addEventListener('click', cartanimation);
+
 
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
 
-  cartButton.addEventListener('click', cartanimation);
+  
 
   
 
