@@ -18,7 +18,15 @@ function addProductToCart(product) {
     cart = [];
   }
 
-  cart.push(product);
+  const existingProduct = cart.find((item) => item.Id === product.Id);
+
+  if (existingProduct) {
+    existingProduct.Quantity += 0;
+  } else {
+    product.Quantity = 0;
+
+    cart.push(product);
+  }
 
   setLocalStorage("so-cart", cart);
 }
@@ -44,9 +52,3 @@ cartButton.addEventListener('click', cartanimation);
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
-
-  
-
-  
-
-
