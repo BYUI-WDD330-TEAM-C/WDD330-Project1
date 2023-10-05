@@ -251,3 +251,7 @@ input[type="email"] {
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.remove-item {
+  cursor: pointer;
+}
