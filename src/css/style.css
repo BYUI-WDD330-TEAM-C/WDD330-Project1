@@ -252,6 +252,10 @@ input[type="email"] {
   margin-bottom: 10px;
 }
 
+.remove-item {
+  cursor: pointer;
+}
+
 .modal {
   display: none;
   position: fixed;
