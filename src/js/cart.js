@@ -64,6 +64,7 @@ function increaseQuantity(index) {
     cartItemsArray[index].Quantity++;
     saveCart(cartItemsArray);
     renderCartContents();
+    addPrice();
   }
 }
 
@@ -81,6 +82,7 @@ function decreaseQuantity(index) {
       saveCart(cartItemsArray);
     }
     renderCartContents();
+    addPrice();
   }
 }
 
@@ -103,4 +105,29 @@ document.addEventListener("click", (event) => {
   }
 });
 
+function addPrice(){
+  let itemExist = getLocalStorage('so-cart') || [];
+  
+  var sum = 0;
+  const total = itemExist.reduce((sum, item) => (sum += item.FinalPrice), 0);
+  console.log(total);
+  document.querySelector('.cart-price').textContent = total;
+
+}
+
+
+
 renderCartContents();
+addPrice();
+
+
+
+
+
+
+
+
+
+
+
+
