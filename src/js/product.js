@@ -52,3 +52,4 @@ cartButton.addEventListener('click', cartanimation);
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
