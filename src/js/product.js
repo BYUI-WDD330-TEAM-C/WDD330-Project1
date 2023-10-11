@@ -40,7 +40,7 @@ let cartIcon = document.querySelector(".cart");
 
 function cartanimation() {
   cartIcon.classList.add("animation");
-  settimeout(() => {
+  setTimeout(() => {
     cartIcon.classList.remove("animation");
   }, "3");
 }
