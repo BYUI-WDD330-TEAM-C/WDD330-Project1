@@ -16,12 +16,14 @@ function cartItemTemplate(item) {
       <h2 class="card__name">${item.Name}</h2>
     </a>
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: <span class="quantity">${
-      item.Quantity
-    }</span></p>
-    <p class="cart-card__price">$${item.FinalPrice.toFixed(2)} per item</p>
-    <button class="decrease-quantity">-</button>
-    <button class="increase-quantity">+</button>
+    <div class="cart-card__details">
+      <div class="cost">$${item.FinalPrice.toFixed(2)}</div>
+      <div class="quantity">Qty: ${item.Quantity}</div>
+    </div>
+    <div class="choose-qty">
+      <button class="decrease-quantity">-</button>
+      <button class="increase-quantity">+</button>
+    </div>
   </li>`;
 
   return newItem;
