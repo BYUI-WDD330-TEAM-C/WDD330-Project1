@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       localStorage.setItem("visited", "true");
 
-      window.location.href = ".html";
+      window.location.href = "login.html";
     });
   }
 });

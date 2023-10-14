@@ -47,6 +47,26 @@ header {
   text-decoration: none;
   color: var(--font-body);
 }
+
+#navBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn-nav-bar {
+  margin-left: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
 .hero {
   position: relative;
 }
@@ -295,3 +315,77 @@ input[type="email"] {
   padding: 10px;
   cursor: pointer;
 }
+
+/* comeca aqui o formulario */
+
+/* #bodyLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+#mainLogin {
+  display: flex; 
+  justify-content: center;
+  max-width: 800px; 
+}
+
+#signup-form, #login-form  {
+  border: 2px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  margin: 0 10px; 
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.ko{
+  display: flex;
+} */
+
+#bodyLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  margin: 0;
+}
+
+#mainLogin {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+}
+
+form {
+  padding: 20px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column; 
+}
+
+form h2 {
+  text-align: center;
+}
+
+.form-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
