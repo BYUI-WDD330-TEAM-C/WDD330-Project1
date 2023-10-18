@@ -1,7 +1,7 @@
 import { setLocalStorage, getLocalStorage, getParam } from "./utils.mjs";
 import productDetails from "./productDetails.mjs";
 import { findProductById } from "./productData.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, getParam } from "./utils.mjs";
 
 loadHeaderFooter();
 

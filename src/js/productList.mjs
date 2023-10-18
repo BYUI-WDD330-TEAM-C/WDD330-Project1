@@ -22,8 +22,7 @@ function productCardTemplate(product) {
 export default async function productList(selector, category) {
   const el = document.querySelector(selector);
   const products = await getData(category);
-
-  const filteredTents = products.filter(product => product.Name.includes("Tent")).slice(0, 4);
-
-  renderListWithTemplate(productCardTemplate, el, filteredTents);
+  console.log(products);
+  renderListWithTemplate(productCardTemplate, el, products);
+  document.querySelector(".title").innerHTML = category;
 }
