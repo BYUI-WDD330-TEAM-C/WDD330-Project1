@@ -89,6 +89,47 @@ header {
   margin-top: -1.7em;
 }
 
+.cart-login-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.login a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+  margin-top: 10px;
+  color: black;
+}
+
+/****** Styling for cart superscript ******/
+.backpack-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px; 
+  background-color: #f0a868;
+  color: black;
+  font-size: 14px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+/****** End styling for cart superscript ******/
+
 /* utility classes */
 .highlight {
   color: var(--tertiary-color);
@@ -431,3 +472,4 @@ input[type="email"] {
   width: 75px;
   height: 75px;
 }
+

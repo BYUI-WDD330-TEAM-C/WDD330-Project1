@@ -33,11 +33,17 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
 
-  const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
+  // Calculate the cart item count
+  const cartItemCount = cartItemsArray.reduce((total, item) => total + item.Quantity, 0);
 
+  // Update the cart count in the <sup> element with the class "cart-count"
+  const cartCountElement = document.querySelector(".cart-count");
+  cartCountElement.textContent = cartItemCount;
+
+  const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
   const productList = document.querySelector(".product-list");
   productList.innerHTML = htmlItems.join("");
-
+  
   // Add event listeners for increase and decrease buttons
   const increaseButtons = productList.querySelectorAll(".increase-quantity");
   const decreaseButtons = productList.querySelectorAll(".decrease-quantity");
