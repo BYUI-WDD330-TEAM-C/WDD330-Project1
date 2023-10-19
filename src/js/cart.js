@@ -8,7 +8,7 @@ function cartItemTemplate(item) {
     <span data-id="${item.Id}" class="remove-item">X</span>
     <a href="#" class="cart-card__image">
       <img
-        src="${item.Image}"
+        src="${item.Images.PrimarySmall}"
         alt="${item.Name}"
       />
     </a>
@@ -32,13 +32,6 @@ function cartItemTemplate(item) {
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
-
-  // Calculate the cart item count
-  const cartItemCount = cartItemsArray.reduce((total, item) => total + item.Quantity, 0);
-
-  // Update the cart count in the <sup> element with the class "cart-count"
-  const cartCountElement = document.querySelector(".cart-count");
-  cartCountElement.textContent = cartItemCount;
 
   const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
   const productList = document.querySelector(".product-list");
@@ -125,40 +118,29 @@ function addPrice() {
 
   document.querySelector(".cart-price").textContent = total.toFixed(2);
 }
-// function addPrice() {
-//   let itemExist = getLocalStorage("so-cart") || [];
 
-//   let sum = 0;
-//   const total = itemExist.reduce(
-//     (sum, item) => (sum += item.FinalPrice * item.Quantity),
-//     0
+// function addToCart(item) {
+//   const cartItems = getLocalStorage("so-cart");
+//   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
+
+//   // Check if the item is already in the cart
+//   const existingItem = cartItemsArray.find(
+//     (cartItem) => cartItem.Id === item.Id
 //   );
-//   console.log(total);
-//   document.querySelector(".cart-price").textContent = total.toFixed(2);
+
+//   if (existingItem) {
+//     // Item already exists in the cart, increment its quantity
+//     existingItem.Quantity++;
+//   } else {
+//     // Item is not in the cart, add it
+//     item.Quantity = 1;
+//     cartItemsArray.push(item);
+//   }
+
+//   saveCart(cartItemsArray);
+//   renderCartContents();
+//   addPrice();
 // }
-
-function addToCart(item) {
-  const cartItems = getLocalStorage("so-cart");
-  const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
-
-  // Check if the item is already in the cart
-  const existingItem = cartItemsArray.find(
-    (cartItem) => cartItem.Id === item.Id
-  );
-
-  if (existingItem) {
-    // Item already exists in the cart, increment its quantity
-    existingItem.Quantity++;
-  } else {
-    // Item is not in the cart, add it
-    item.Quantity = 1;
-    cartItemsArray.push(item);
-  }
-
-  saveCart(cartItemsArray);
-  renderCartContents();
-  addPrice();
-}
 
 renderCartContents();
 addPrice();

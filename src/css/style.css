@@ -181,7 +181,7 @@ button {
   }
 
   100% {
-    transform: rotate(3600deg);
+    transform: rotate(360deg);
   }
 }
 
