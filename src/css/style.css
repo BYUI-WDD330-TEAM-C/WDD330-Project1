@@ -55,24 +55,12 @@ header {
   color: var(--font-body);
 }
 
-#navBar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.btn-nav-bar {
-  margin-left: 20px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-a {
+/* styling login button  */
+.login a{
   text-decoration: none;
+  margin-bottom: 10px;
 }
+/* end styling login button  */
 
 .hero {
   position: relative;
@@ -163,6 +151,7 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .divider {
