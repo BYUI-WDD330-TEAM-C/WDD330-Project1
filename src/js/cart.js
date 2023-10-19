@@ -16,12 +16,14 @@ function cartItemTemplate(item) {
       <h2 class="card__name">${item.Name}</h2>
     </a>
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: <span class="quantity">${
-      item.Quantity
-    }</span></p>
-    <p class="cart-card__price">$${item.FinalPrice.toFixed(2)} per item</p>
-    <button class="decrease-quantity">-</button>
-    <button class="increase-quantity">+</button>
+    <div class="cart-card__details">
+      <div class="cost">$${item.FinalPrice.toFixed(2)}</div>
+      <div class="quantity">Qty: ${item.Quantity}</div>
+    </div>
+    <div class="choose-qty">
+      <button class="decrease-quantity">-</button>
+      <button class="increase-quantity">+</button>
+    </div>
   </li>`;
 
   return newItem;
@@ -31,11 +33,17 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
 
-  const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
+  // Calculate the cart item count
+  const cartItemCount = cartItemsArray.reduce((total, item) => total + item.Quantity, 0);
 
+  // Update the cart count in the <sup> element with the class "cart-count"
+  const cartCountElement = document.querySelector(".cart-count");
+  cartCountElement.textContent = cartItemCount;
+
+  const htmlItems = cartItemsArray.map((item) => cartItemTemplate(item));
   const productList = document.querySelector(".product-list");
   productList.innerHTML = htmlItems.join("");
-
+  
   // Add event listeners for increase and decrease buttons
   const increaseButtons = productList.querySelectorAll(".increase-quantity");
   const decreaseButtons = productList.querySelectorAll(".decrease-quantity");
