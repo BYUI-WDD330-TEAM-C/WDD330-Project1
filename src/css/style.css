@@ -55,6 +55,13 @@ header {
   color: var(--font-body);
 }
 
+/* styling login button  */
+.login a{
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+/* end styling login button  */
+
 .hero {
   position: relative;
 }
@@ -144,6 +151,7 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .divider {
@@ -453,6 +461,44 @@ input[type="email"] {
   cursor: pointer;
 }
 
+#bodyLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  margin: 0;
+}
+
+#mainLogin {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+}
+
+form {
+  padding: 20px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+form h2 {
+  text-align: center;
+}
+
+.form-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
 .product-grid-container {
   display: flex;
   flex-direction: row;

@@ -1,3 +1,7 @@
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("login-form");
   const signupForm = document.getElementById("signup-form");
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       alert("Registration successful!");
 
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     }
   });
 
