@@ -197,6 +197,32 @@ button {
   animation: cart-anim 1.5s linear;
 }
 
+/* Superscript Styles */
+.cart-items-qty {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #525b0f;
+  color: #ffffff; 
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px; 
+}
+
+.cart-items-qty::after {
+  content: attr(data-qty);
+  position: absolute;
+  top: -8px;
+  right: 0; 
+  color: #fff; 
+  padding: 2px 4px; 
+  border-radius: 50%; 
+  font-size: 12px; 
+  font-weight: bold; 
+}
+/* End Superscript Styles */
+
+
 /* End cart icon styles */
 
 .mission {

@@ -103,7 +103,6 @@ const checkoutProcess = {
   },
 };
 
-// Call addPrice to calculate the initial values
 addPrice(checkoutProcess);
 
 export default checkoutProcess;
