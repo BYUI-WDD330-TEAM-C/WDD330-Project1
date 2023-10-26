@@ -25,11 +25,27 @@ function packageItems(items) {
   return simplifiedItems;
 }
 
+function addPrice(checkoutProcess) {
+  const cartItems = getLocalStorage("so-cart");
+  const total = cartItems.reduce(
+    (acc, item) => acc + item.FinalPrice * item.Quantity,
+    0
+  );
+
+  // Calculate the total item count
+  const totalItems = cartItems.reduce((count, item) => count + item.Quantity, 0);
+
+  // Store these values in the checkoutProcess object
+  checkoutProcess.itemTotal = total.toFixed(2);
+  checkoutProcess.totalItems = totalItems;
+}
+
 const checkoutProcess = {
   key: "",
   outputSelector: "",
   list: [],
   itemTotal: 0,
+  totalItems: 0,
   shipping: 0,
   tax: 0,
   orderTotal: 0,
@@ -46,15 +62,12 @@ const checkoutProcess = {
     const itemNumElement = document.querySelector(
       this.outputSelector + " #num-items"
     );
-    itemNumElement.innerText = this.list.length;
-    // calculate the total of all the items in the cart
-    const amounts = this.list.map((item) => item.FinalPrice);
-    this.itemTotal = amounts.reduce((sum, item) => sum + item);
+    itemNumElement.innerText = this.totalItems; // Use the value from addPrice
     summaryElement.innerText = "$" + this.itemTotal;
   },
   calculateOrdertotal: function () {
     this.shipping = 10 + (this.list.length - 1) * 2;
-    this.tax = (this.itemTotal * 0.06).toFixed(2);
+    this.tax = (parseFloat(this.itemTotal) * 0.06).toFixed(2);
     this.orderTotal = (
       parseFloat(this.itemTotal) +
       parseFloat(this.shipping) +
@@ -89,5 +102,8 @@ const checkoutProcess = {
     }
   },
 };
+
+// Call addPrice to calculate the initial values
+addPrice(checkoutProcess);
 
 export default checkoutProcess;
