@@ -119,6 +119,12 @@ function addPrice() {
   document.querySelector(".cart-price").textContent = total.toFixed(2);
 }
 
+function calculateListTotal(list) {
+  const amounts = list.map((item) => item.FinalPrice);
+  const total = amounts.reduce((sum, item) => sum + item, 0);
+  return total;
+}
+
 // function addToCart(item) {
 //   const cartItems = getLocalStorage("so-cart");
 //   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
@@ -144,3 +150,4 @@ function addPrice() {
 
 renderCartContents();
 addPrice();
+calculateListTotal();
