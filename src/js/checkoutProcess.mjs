@@ -14,12 +14,11 @@ function formDataToJSON(formElement) {
 
 function packageItems(items) {
   const simplifiedItems = items.map((item) => {
-    console.log(item);
     return {
       id: item.Id,
       price: item.FinalPrice,
       name: item.Name,
-      quantity: 1,
+      quantity: item.Quantity,
     };
   });
   return simplifiedItems;
@@ -66,7 +65,7 @@ const checkoutProcess = {
     summaryElement.innerText = "$" + this.itemTotal;
   },
   calculateOrdertotal: function () {
-    this.shipping = 10 + (this.list.length - 1) * 2;
+    this.shipping = 10 + (this.totalItems - 1) * 2;
     this.tax = (parseFloat(this.itemTotal) * 0.06).toFixed(2);
     this.orderTotal = (
       parseFloat(this.itemTotal) +
@@ -86,14 +85,25 @@ const checkoutProcess = {
     orderTotal.innerText = "$" + this.orderTotal;
   },
   checkout: async function (form) {
-    const json = formDataToJSON(form);
-    // add totals, and item details
-    json.orderDate = new Date();
-    json.orderTotal = this.orderTotal;
-    json.tax = this.tax;
-    json.shipping = this.shipping;
-    json.items = packageItems(this.list);
+    const json = {
+      orderDate: new Date().toISOString(),
+      fname: form.fname.value,
+      lname: form.lname.value,
+      street: form.street.value,
+      city: form.city.value,
+      state: form.state.value,
+      zip: form.zip.value,
+      cardNumber: form.cardNumber.value,
+      expiration: form.expiration.value,
+      code: form.code.value,
+      items: packageItems(Array.from(this.list)),
+      orderTotal: this.orderTotal,
+      shipping: this.shipping.toFixed(2),
+      tax: this.tax,
+    };
+
     console.log(json);
+
     try {
       const res = await checkout(json);
       console.log(res);
