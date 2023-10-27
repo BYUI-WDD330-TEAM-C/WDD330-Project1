@@ -116,31 +116,12 @@ function addPrice() {
     0
   );
 
+  // Calculate the total item count
+  const totalItems = cartItems.reduce((count, item) => count + item.Quantity, 0);
+  
+  document.querySelector(".cart-items-count").textContent = totalItems;
   document.querySelector(".cart-price").textContent = total.toFixed(2);
 }
-
-// function addToCart(item) {
-//   const cartItems = getLocalStorage("so-cart");
-//   const cartItemsArray = Array.isArray(cartItems) ? cartItems : [];
-
-//   // Check if the item is already in the cart
-//   const existingItem = cartItemsArray.find(
-//     (cartItem) => cartItem.Id === item.Id
-//   );
-
-//   if (existingItem) {
-//     // Item already exists in the cart, increment its quantity
-//     existingItem.Quantity++;
-//   } else {
-//     // Item is not in the cart, add it
-//     item.Quantity = 1;
-//     cartItemsArray.push(item);
-//   }
-
-//   saveCart(cartItemsArray);
-//   renderCartContents();
-//   addPrice();
-// }
 
 renderCartContents();
 addPrice();
