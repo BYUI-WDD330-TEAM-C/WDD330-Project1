@@ -160,6 +160,66 @@ button {
 
 /* End utility classes */
 
+/* Alert styles */
+.alert-list {
+  position: fixed;
+  z-index: 100;
+  left: calc(50% - 60px);
+  top: 0;
+  text-align: center;
+  /*background-color: orange;
+  width: 120px;
+  height: 80px;*/
+  /*border: 2px solid orange;*/
+  padding: 10px 20px;
+}
+
+.alert {
+  display: block;
+  margin: 0;
+  padding: 1rem;
+  border: solid 1px var(--primary-color);
+  position: relative;
+  transform: translateY(-100%);
+  animation: slide-in .5s forwards;
+  
+}
+
+/*.alert {
+  animation: slide-in .5s forwards
+}*/
+
+.alert-out {
+  animation: slide-out .5s forwards
+}
+
+/*.alert {
+  display: block;
+  margin: 0;
+  padding: 1rem;
+  border: solid 1px var(--primary-color);
+}*/
+/*alertCart - Used to create a alert after adding item to the cart.*/
+
+main.alertCart {
+      display: none;
+      width: 120px;
+      height: 30px;
+      background-color: green;
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+
+
+/* End Alert styles*/
+
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
