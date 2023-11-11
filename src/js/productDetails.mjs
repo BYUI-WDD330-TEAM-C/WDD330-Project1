@@ -25,11 +25,15 @@ function addToCart() {
 }
 
 function renderProductDetails() {
+  let discountAmount = product.SuggestedRetailPrice - product.FinalPrice;
+  console.log(discountAmount);
+  let discountPrice = Math.round(discountAmount * 100)/100;
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
   document.querySelector("#productImage").src = product.Images.PrimaryLarge;
   document.querySelector("#productImage").alt = product.Name;
+  document.querySelector("#productDiscountPrice").innerText = product.DiscountPrice;
   document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
   document.querySelector("#productColorName").innerText =
     product.Colors[0].ColorName;
